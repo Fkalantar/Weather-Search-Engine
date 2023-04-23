@@ -29,6 +29,7 @@
     margin-right: 10px;
     width: 64px;
     display: inline-block;
+    vertical-align: top;
 }
 
 .Weather .temperature {
