@@ -4,7 +4,7 @@ import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  function handleResponse() {
+  function handleResponse(response) {
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -50,7 +50,7 @@ export default function Weather(props) {
             <div className="col-6">
               <ul>
                 <li>Precipitation: 15%</li>
-                <li>{weatherDataa.humidity}%</li>
+                <li>{weatherData.humidity}%</li>
                 <li>{weatherData.wind} km/h</li>
               </ul>
             </div>
@@ -59,7 +59,7 @@ export default function Weather(props) {
       );
   } else {
   const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let apiUrl = `http://openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 
   return "Loading...";
